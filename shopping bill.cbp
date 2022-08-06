@@ -1,41 +1,95 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="shopping bill" />
-		<Option execution_dir="C:/Users/Aaron/Documents/shopping bill/" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/shopping bill" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/shopping bill" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="../../../Documents/shopping bill/main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "         Aaron Shopping Centre       " << endl;
+    int qpotato,qchips,qmilk,qjuice,qbutter,x;
+    int spotato=0,schips=0,smilk=0,sjuice=0,sbutter=0;
+    int tpotato,tchips,tmilk,tjuice,tbutter;
+    int cpotato=30,cchips=20,cmilk=25,cjuice=40,cbutter=60;
+    cout<<"Enter the quantity of each item in store"<<endl;
+    cout<<"Potato :";
+    cin>>tpotato;
+    cout<<"chips :";
+    cin>>tchips;
+    cout<<"milk :";
+    cin>>tmilk;
+    cout<<"juice :";
+    cin>>tjuice;
+    cout<<"butter :";
+    cin>>tbutter;
+
+    cout<<"Welcome Customer\n";
+    m:
+    cout<<"Enter 1-buy 2-checkout 3-exit\n";
+    cin>>x;
+    switch(x)
+    {
+        case 1:cout<<"Cost of each potato: "<<cpotato<<endl;
+               cout<<"Enter the quantity of potatoes needed: ";
+               cin>>qpotato;
+               if(tpotato>=qpotato)
+               {
+                    spotato=spotato+qpotato;
+                    tpotato=tpotato-qpotato;
+               }
+               else
+                cout<<"Sorry your item is not available\n";
+               cout<<"Cost of each chips: "<<cchips<<endl;
+               cout<<"Enter the quantity of chips needed: ";
+               cin>>qchips;
+               if(tchips>=qchips)
+               {
+                    schips=schips+qchips;
+                    tchips=tchips-qchips;
+               }
+               else
+                cout<<"Sorry your item is not available\n";
+               cout<<"Cost of each milk: "<<cmilk<<endl;
+               cout<<"Enter the quantity of milk needed: ";
+               cin>>qmilk;
+               if(tmilk>=qmilk)
+               {
+                    smilk=smilk+qmilk;
+                    tmilk=tmilk-qmilk;
+               }
+               else
+                cout<<"Sorry your item is not available\n";
+               cout<<"Cost of each juice: "<<cjuice<<endl;
+               cout<<"Enter the quantity of juice needed: ";
+               cin>>qjuice;
+               if(tjuice>=qjuice)
+               {
+                    sjuice=sjuice+qjuice;
+                    tjuice=tjuice-qjuice;
+               }
+               else
+                cout<<"Sorry your item is not available\n";
+               cout<<"Cost of each butter: "<<cbutter<<endl;
+               cout<<"Enter the quantity of butter needed: ";
+               cin>>qbutter;
+               if(tbutter>=qbutter)
+               {
+                    sbutter=sbutter+qbutter;
+                    tbutter=tbutter-qbutter;
+               }
+               else
+                cout<<"Sorry your item is not available\n";
+               break;
+        case 2:cout<<"Your bill is: \n";
+               cout<<"Name: "<<"  Quantity:  "<<"   Cost:  \n";
+               cout<<"potato:     "<<spotato<<"      "<<cpotato*qpotato<<endl;
+               cout<<"chips:      "<<schips<<"       "<<cchips*qchips<<endl;
+               cout<<"milk:       "<<smilk<<"       "<<cmilk*qmilk<<endl;
+               cout<<"juice:      "<<sjuice<<"      "<<cjuice*qjuice<<endl;
+               cout<<"butter:     "<<sbutter<<"     "<<cbutter*qbutter<<endl;
+               cout<<"Total cost: "<<spotato*qpotato+schips*qchips+smilk*qmilk+sjuice*qjuice+sbutter*qbutter<<endl;
+             break;
+       case 3:cout<<"Thank you";
+              exit(0);
+    }
+    goto m;
+    return 0;
+}
